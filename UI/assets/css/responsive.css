@@ -1,0 +1,99 @@
+@media screen and (max-width: 1280px) {
+	.top-navbar--menu {
+	  	display: block;
+	}
+	.sidebar-open--btn-mobile{
+		display: none;
+	}
+}
+  
+@media screen and (max-width: 1024px) {
+	.profile-box b {
+	  	display: none;
+	}
+	.search-form {
+	  	display: none;
+	}
+	.sidebar {
+	  	display: none;
+	}
+	.main-content {
+	  	margin-left: 0;
+	}
+	.sidebar-open--btn {
+	  	display: block;
+	}
+	.top-navbar--menu {
+		display: block;
+  	}
+	.sidebar-open--btn-mobile{
+		display: none;
+	}
+	.top-right--menu{
+		margin-right:3em;
+	}
+	.dropdown-menu{
+		right: 2em;
+		top: 4em;
+	}
+	.col-3{
+		width: 50%
+	}
+	.col-6{
+		width: 100%
+	}
+}
+  
+@media screen and (min-width: 1024px) {
+	.sidebar {
+	  	display: block !important;
+	}
+	
+}
+  
+@media screen and (max-width: 768px) {
+	.page-header .right {
+	  	display: none;
+	}
+	.sidebar {
+		display: none;
+		width: 100%;
+	}
+	.app--logo {
+	  	display: block;
+	}
+	.profile-left .btn {
+	  	display: none;
+	}
+	.col-3{
+		width: 50%
+	}
+	.col-6{
+		width: 100%
+	}
+}
+  
+  @media screen and (max-width: 428px) {
+	.top-right--menu {
+	  display: none;
+	}
+	.app--logo {
+		padding-left: 0;
+		background: none;
+		display: block;
+		position: absolute;
+		width: 100%;
+		z-index: -4;
+	}
+	.app--logo .logo span {
+		color: #5d5f77;
+		font-weight: 700;
+	}
+	.col-3{
+		width: 100%
+	}
+	.col-6{
+		width: 100%
+	}
+}
+  
