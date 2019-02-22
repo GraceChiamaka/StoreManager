@@ -1,5 +1,12 @@
 import db from './db';
 
+const createdb = () => {
+	const queryStr = `CREATE DATABASE IF NOT EXITS storemanagerdb`;
+	db.query(queryStr)
+		.then(res => { console.log('database created', res)})
+		.catch(e => setImmediate(() => { throw e }))
+}
+
 const createProducts = () => {
 	const queryStr = `CREATE TABLE IF NOT EXISTS products(
 		id serial PRIMARY KEY,
@@ -57,7 +64,8 @@ const dropProducts = () => {
 };
 
 
+createdb();
 createProducts();
-// createUsers();
-// createSalesRecords();
+createUsers();
+createSalesRecords();
 // dropProducts();
