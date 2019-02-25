@@ -1,7 +1,7 @@
 import db from './db';
 
 const createdb = () => {
-	const queryStr = `CREATE DATABASE IF NOT EXITS storemanagerdb`;
+	const queryStr = 'CREATE DATABASE storemanagerdb';
 	db.query(queryStr)
 		.then(res => { console.log('database created', res)})
 		.catch(e => setImmediate(() => { throw e }))
