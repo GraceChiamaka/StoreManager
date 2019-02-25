@@ -68,4 +68,5 @@ createdb();
 createProducts();
 createUsers();
 createSalesRecords();
+
 // dropProducts();
