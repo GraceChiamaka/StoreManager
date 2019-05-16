@@ -39,7 +39,7 @@ describe('/GET specific product',() => {
 			.end((err, res) => {
 				const { token } = res.body;
 				chai.request(app)
-					.get('/api/v1/products/:id')
+					.get('/api/v1/products/2')
 					.set('accesstoken', token)
 					.end((error, data) => {
 						expect(data).to.have.status(200);
@@ -114,7 +114,7 @@ describe('/delete', () => {
 		.end((err, res) => {
 			const { token } = res.body;
 			chai.request(app)
-				.delete('/api/v1/products/:id')
+				.delete('/api/v1/products/4')
 				.set('accesstoken', token)
 				.end((error, data) => {
 					expect(data).to.have.status(200);
