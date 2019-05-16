@@ -11,8 +11,8 @@ describe('/GET records', () => {
 		chai.request(app)
 			.post('/api/v1/auth/login')
 			.send({
-				email: 'kachi@gmail.com',
-				password: 'patronum'
+				email: "sansa@gmail.com",
+				password: "lady"
 			})
 			.end((err, res) => {
 				const {token} = res.body;
@@ -33,8 +33,8 @@ describe('/GET specific record',() => {
 		chai.request(app)
 			.post('/api/v1/auth/login')
 			.send({
-				email: 'kachi@gmail.com',
-				password: 'patronum'
+				email: "sansa@gmail.com",
+				password: "lady"
 			})
 			.end((err, res) => {
 				const { token } = res.body;
@@ -55,8 +55,8 @@ describe('/404', () => {
 		chai.request(app)
 			.post('/api/v1/auth/login')
 			.send({
-				email: 'kachi@gmail.com',
-				password: 'patronum'
+				email: "sansa@gmail.com",
+				password: "lady"
 			})
 			.end((err, res) => {
 				const { token } = res.body;
@@ -76,8 +76,8 @@ describe('/POST new record', () => {
 		chai.request(app)
 		.post('/api/v1/auth/login')
 		.send({
-			email: 'kachi@gmail.com',
-			password: 'patronum'
+			email: "sansa@gmail.com",
+				password: "lady"
 		})
 		.end((err, res) => {
 			const { token } = res.body;
