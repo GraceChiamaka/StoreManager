@@ -11,8 +11,8 @@ describe('/GET products', () => {
 		chai.request(app)
 			.post('/api/v1/auth/login')
 			.send({
-				email: 'zion@gmail.com',
-				password: 'patronum'
+				email: "sansa@gmail.com",
+				password: "lady"
 			})
 			.end((err, res) => {
 				const {token} = res.body;
@@ -33,8 +33,8 @@ describe('/GET specific product',() => {
 		chai.request(app)
 			.post('/api/v1/auth/login')
 			.send({
-				email: 'zion@gmail.com',
-				password: 'patronum'
+				email: "sansa@gmail.com",
+				password: "lady"
 			})
 			.end((err, res) => {
 				const { token } = res.body;
@@ -56,8 +56,8 @@ describe('/POST', () => {
 		chai.request(app)
 		.post('/api/v1/auth/login')
 		.send({
-			email: 'kachi@gmail.com',
-			password: 'patronum'
+			email: "sansa@gmail.com",
+			password: "lady"
 		})
 		.end((err, res) => {
 			const { token } = res.body;
@@ -85,8 +85,8 @@ describe('/404', () => {
 		chai.request(app)
 			.post('/api/v1/auth/login')
 			.send({
-				email: 'kachi@gmail.com',
-				password: 'patronum'
+				email: "sansa@gmail.com",
+				password: "lady"
 			})
 			.end((err, res) => {
 				const { token } = res.body;
@@ -108,8 +108,8 @@ describe('/delete', () => {
 		chai.request(app)
 		.post('/api/v1/auth/login')
 		.send({
-			email: 'kachi@gmail.com',
-			password: 'patronum'
+			email: "sansa@gmail.com",
+			password: "lady"
 		})
 		.end((err, res) => {
 			const { token } = res.body;

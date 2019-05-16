@@ -1,7 +1,7 @@
 import db from './db';
 
 const createdb = () => {
-	const queryStr = 'CREATE DATABASE storemanagerdb';
+	const queryStr = 'CREATE IF NOT EXISTS DATABASE storemanagerdb';
 	db.query(queryStr)
 		.then(res => { console.log('database created', res)})
 		.catch(e => setImmediate(() => { throw e }))
@@ -9,18 +9,20 @@ const createdb = () => {
 
 const createProducts = () => {
 	const queryStr = `CREATE TABLE IF NOT EXISTS products(
-		id serial PRIMARY KEY,
+		id SERIAL PRIMARY KEY,
 		name character varying(50) NOT NULL,
 		price integer NOT NULL,
+		description text NOT NULL,
 		quantity integer NOT NULL,
-		minquantity integer NOT NULL,
-		maxquantity integer NOT NULL,
-		imageurl text NOT NULL
+		min_quantity integer NOT NULL,
+		max_quantity integer NOT NULL,
+		image_url text NOT NULL
 	)`;
 	
 	db.query(queryStr)
 		.then(res => { console.log('products table created', res)})
 		.catch(e => setImmediate(() => { throw e }))
+
 };
 const createUsers = () => {
 	const queryStr = `CREATE TABLE IF NOT EXISTS users(
@@ -39,11 +41,11 @@ const createUsers = () => {
 const createSalesRecords = () => {
 	const queryStr = `CREATE TABLE IF NOT EXISTS records(
 		id serial PRIMARY KEY,
-		productname character varying(50) NOT NULL,
-		description text NOT NULL,
-		price integer NOT NULL,
-		quantity integer NOT NULL,
-		total integer NOT NULL
+		product_id INTEGER REFERENCES products (id),
+		product_name text NOT null,
+		price INTEGER NOT NULL,
+		quantity INTEGER NOT NULL,
+		total INTEGER NOT NULL
 	)`;
 	db.query(queryStr)
 		.then(res => { console.log('sales records table created', res)})
@@ -57,16 +59,27 @@ const dropUsers = () => {
 		.catch(e => setImmediate(() => { throw e.message }));
 };
 const dropProducts = () => {
-	const queryStr = 'drop TABLE products';
+	const queryStr = 'DROP TABLE products CASCADE';
 	db.query(queryStr)
 		.then(res => { console.log('products table deleted', res)})
 		.catch(e => setImmediate(() => { throw e.message }))
 };
+const dropSales = () => {
+	const queryStr = 'DROP TABLE records CASCADE';
+	db.query(queryStr)	
+		.then(res => { console.log('sales table deleted', res)})
+		.catch(e => setImmediate(() => {throw e.message }))
+}
+const endConnection = ()=>{
+	pool.end();
+}
 
 
 // createdb();
+// dropProducts();
+// dropSales()
 createProducts();
 createUsers();
-createSalesRecords();
+//createSalesRecords();
 
-// dropProducts();
+endConnection();

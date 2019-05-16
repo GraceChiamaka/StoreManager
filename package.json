@@ -7,7 +7,7 @@
     "start": "nodemon --exec babel-node ./SERVER/src/lib/server.js",
     "lint": "eslint",
     "db": "babel-node ./SERVER/src/models/storemanagerdb.js",
-    "test": "mocha --require @babel/register ./SERVER/src/tests/products.spec.js",
+    "test": "mocha --require @babel/register ./SERVER/src/tests/*",
     "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {

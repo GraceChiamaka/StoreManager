@@ -14,5 +14,9 @@
         "sourceType": "module"
     },
     "rules": {
+        "indent": ["error", 4],
+        "comma-dangle":"off",
+        "linebreak-style": ["error", "windows"],
+        "no-multiple-empty-lines": ["error", { "max": 4, "maxEOF": 1 }]
     }
 }

@@ -2,6 +2,7 @@ import express from 'express';
 import Products from '../controllers/products';
 import Records from '../controllers/sales';
 import Users from '../controllers/users';
+import Validation from '../middleware/validation';
 import UserAuth from '../middleware/check-auth';
 
 const router = express.Router();
@@ -11,10 +12,10 @@ router.get('/', (req, res) => {
 });
 
 
-router.post('/api/v1/products', UserAuth.verifyUser, UserAuth.isAdmin, Products.createProduct);
+router.post('/api/v1/products', Validation.validateNewProduct, UserAuth.verifyUser, UserAuth.isAdmin, Products.createProduct);
 router.get('/api/v1/products', UserAuth.verifyUser, Products.getProducts)
 router.get('/api/v1/products/:id', UserAuth.verifyUser, Products.getProduct);
-router.put('/api/v1/products/:id', UserAuth.verifyUser, Products.editProduct);
+router.put('/api/v1/products/:id', UserAuth.verifyUser, UserAuth.isAdmin, Products.editProduct);
 router.delete('/api/v1/products/:id', UserAuth.verifyUser, UserAuth.isAdmin, Products.deleteProduct);
 
 // sales routes
