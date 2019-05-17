@@ -60,7 +60,7 @@ describe('/POST', () => {
 			password: "lady"
 		})
 		.end((err, res) => {
-			const { token } = res.body;
+		const { token } = res.body;
 			chai.request(app)
 				.post('/api/v1/products')
 				.set('accesstoken', token)
